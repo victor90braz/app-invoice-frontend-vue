@@ -5,28 +5,29 @@ export const useInvoiceStore = defineStore('invoice', {
     invoices: [],
     loading: false,
     error: null,
+    source: null,
   }),
   actions: {
     async fetchInvoices() {
       this.loading = true
       this.error = null
+      this.source = null
 
       const primaryUrl = 'https://app-invoice-backend-django.onrender.com/invoices/'
       const fallbackUrl = 'http://localhost:3001/invoices'
 
       try {
         const res = await fetch(primaryUrl)
-        if (!res.ok) throw new Error('Primary API failed')
+        if (!res.ok) throw new Error()
         this.invoices = await res.json()
-      } catch (error) {
-        console.warn('Primary API failed, trying fallback...', error)
-
+        this.source = 'Render'
+      } catch {
         try {
           const res = await fetch(fallbackUrl)
-          if (!res.ok) throw new Error('Fallback API failed')
+          if (!res.ok) throw new Error()
           this.invoices = await res.json()
-        } catch (fallbackError) {
-          console.error('Both APIs failed:', fallbackError)
+          this.source = 'Fake API'
+        } catch {
           this.error = 'Unable to load invoices.'
           this.invoices = []
         }
