@@ -11,7 +11,7 @@ export const useInvoiceStore = defineStore('invoice', {
       this.loading = true
       this.error = null
 
-      const primaryUrl = 'http://127.0.0.1:8000/invoices'
+      const primaryUrl = 'http://127.0.0.1:8000/invoices/'
       const fallbackUrl = 'http://localhost:3001/invoices'
 
       try {
