@@ -1,22 +1,27 @@
 <script setup>
 import { onMounted } from 'vue'
 import { useInvoiceStore } from '@/stores/invoiceStore'
+import { storeToRefs } from 'pinia'
 
-const invoiceStore = useInvoiceStore()
+const store = useInvoiceStore()
+const { invoices, loading, error } = storeToRefs(store)
 
 onMounted(() => {
-  invoiceStore.fetchInvoices()
+  store.fetchInvoices()
 })
 </script>
 
 <template>
   <div>
     <h1>Invoices</h1>
-    <ul v-if="invoiceStore.invoices.length">
-      <li v-for="invoice in invoiceStore.invoices" :key="invoice.id">
+
+    <p v-if="loading">Loading...</p>
+    <p v-else-if="error">{{ error }}</p>
+    <ul v-else-if="invoices.length">
+      <li v-for="invoice in invoices" :key="invoice.id">
         {{ invoice.number }} - {{ invoice.supplier }} - ${{ invoice.amount }}
       </li>
     </ul>
-    <p v-else>Loading...</p>
+    <p v-else>No invoices found.</p>
   </div>
 </template>
