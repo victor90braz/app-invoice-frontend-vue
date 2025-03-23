@@ -1,0 +1,151 @@
+{
+  "invoices": [
+    {
+      "id": 1,
+      "number": "INV-1000",
+      "date": "2025-03-23",
+      "amount": "637.54",
+      "supplier": "Long, Smith and Hernandez"
+    },
+    {
+      "id": 2,
+      "number": "INV-1001",
+      "date": "2025-03-23",
+      "amount": "759.12",
+      "supplier": "Jones Group"
+    },
+    {
+      "id": 3,
+      "number": "INV-1002",
+      "date": "2025-03-23",
+      "amount": "458.47",
+      "supplier": "Medina, Simmons and Ruiz"
+    },
+    {
+      "id": 4,
+      "number": "INV-1003",
+      "date": "2025-03-23",
+      "amount": "740.13",
+      "supplier": "Allen and Sons"
+    },
+    {
+      "id": 5,
+      "number": "INV-1004",
+      "date": "2025-03-23",
+      "amount": "238.42",
+      "supplier": "Hill PLC"
+    },
+    {
+      "id": 6,
+      "number": "INV-1005",
+      "date": "2025-03-23",
+      "amount": "717.94",
+      "supplier": "Wagner, Lambert and Cooper"
+    },
+    {
+      "id": 7,
+      "number": "INV-1006",
+      "date": "2025-03-23",
+      "amount": "538.16",
+      "supplier": "Burns-Jackson"
+    },
+    {
+      "id": 8,
+      "number": "INV-1007",
+      "date": "2025-03-23",
+      "amount": "334.89",
+      "supplier": "Glass-Gomez"
+    },
+    {
+      "id": 9,
+      "number": "INV-1008",
+      "date": "2025-03-23",
+      "amount": "232.53",
+      "supplier": "Sellers-Rowe"
+    },
+    {
+      "id": 10,
+      "number": "INV-1009",
+      "date": "2025-03-23",
+      "amount": "213.14",
+      "supplier": "Robinson, Moreno and Murray"
+    },
+    {
+      "id": 11,
+      "number": "INV-1010",
+      "date": "2025-03-23",
+      "amount": "516.09",
+      "supplier": "Walker-Espinoza"
+    },
+    {
+      "id": 12,
+      "number": "INV-1011",
+      "date": "2025-03-23",
+      "amount": "576.13",
+      "supplier": "Fisher-Rodriguez"
+    },
+    {
+      "id": 13,
+      "number": "INV-1012",
+      "date": "2025-03-23",
+      "amount": "185.60",
+      "supplier": "Walker-Campos"
+    },
+    {
+      "id": 14,
+      "number": "INV-1013",
+      "date": "2025-03-23",
+      "amount": "829.98",
+      "supplier": "Rice, Logan and Brown"
+    },
+    {
+      "id": 15,
+      "number": "INV-1014",
+      "date": "2025-03-23",
+      "amount": "304.77",
+      "supplier": "Oliver, Harris and Robinson"
+    },
+    {
+      "id": 16,
+      "number": "INV-1015",
+      "date": "2025-03-23",
+      "amount": "414.85",
+      "supplier": "Bell, Lucas and Vazquez"
+    },
+    {
+      "id": 17,
+      "number": "INV-1016",
+      "date": "2025-03-23",
+      "amount": "819.97",
+      "supplier": "Walls-Goodwin"
+    },
+    {
+      "id": 18,
+      "number": "INV-1017",
+      "date": "2025-03-23",
+      "amount": "156.71",
+      "supplier": "Walker-Phillips"
+    },
+    {
+      "id": 19,
+      "number": "INV-1018",
+      "date": "2025-03-23",
+      "amount": "746.99",
+      "supplier": "Hoover-Kirk"
+    },
+    {
+      "id": 20,
+      "number": "INV-1019",
+      "date": "2025-03-23",
+      "amount": "860.27",
+      "supplier": "Ware, Fisher and Li"
+    },
+    {
+      "id": 21,
+      "number": "INV-1020",
+      "date": "2025-03-23",
+      "amount": "860.27",
+      "supplier": "Vodafone"
+    }
+  ]
+}
