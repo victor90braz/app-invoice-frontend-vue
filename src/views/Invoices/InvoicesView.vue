@@ -4,7 +4,7 @@ import { useInvoiceStore } from '@/stores/invoiceStore'
 import { storeToRefs } from 'pinia'
 
 const store = useInvoiceStore()
-const { invoices, loading, error } = storeToRefs(store)
+const { invoices, loading, error, source } = storeToRefs(store)
 
 onMounted(() => {
   store.fetchInvoices()
@@ -19,6 +19,7 @@ onMounted(() => {
     <p v-else-if="error">{{ error }}</p>
 
     <div v-else>
+      <span class="span">Source Code: {{ source }}</span>
       <table v-if="invoices.length" class="invoice-table">
         <thead>
           <tr>
@@ -62,6 +63,10 @@ h1 {
   border-collapse: collapse;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.span {
+  margin-bottom: 10px;
 }
 
 .invoice-table th,
