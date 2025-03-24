@@ -1,14 +1,34 @@
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useInvoiceStore } from '@/stores/invoiceStore'
 import { storeToRefs } from 'pinia'
 
 const store = useInvoiceStore()
-const { invoices, loading, error, source } = storeToRefs(store)
+const { invoices, loading, error, source, next, previous } = storeToRefs(store)
+
+const route = useRoute()
+const router = useRouter()
+
+const fetchCurrentPage = () => {
+  const page = parseInt(route.query.page) || 1
+  store.fetchInvoices(page)
+}
 
 onMounted(() => {
-  store.fetchInvoices()
+  fetchCurrentPage()
 })
+
+watch(
+  () => route.query.page,
+  () => {
+    fetchCurrentPage()
+  },
+)
+
+const goToPage = (page) => {
+  router.push({ path: '/invoices', query: { page } })
+}
 </script>
 
 <template>
@@ -20,6 +40,16 @@ onMounted(() => {
 
     <div v-else>
       <span class="span">Source Code: {{ source }}</span>
+
+      <div v-if="next || previous" class="pagination">
+        <button :disabled="!previous" @click="goToPage((parseInt(route.query.page) || 1) - 1)">
+          Previous
+        </button>
+        <button :disabled="!next" @click="goToPage((parseInt(route.query.page) || 1) + 1)">
+          Next
+        </button>
+      </div>
+
       <table v-if="invoices.length" class="invoice-table">
         <thead>
           <tr>
@@ -58,15 +88,37 @@ h1 {
   margin-bottom: 1.5rem;
 }
 
+.span {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin: 1rem 0;
+  gap: 1rem;
+}
+
+.pagination button {
+  padding: 0.5rem 1rem;
+  background-color: #2c3e50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
 .invoice-table {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-}
-
-.span {
-  margin-bottom: 10px;
 }
 
 .invoice-table th,
